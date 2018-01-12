@@ -1,12 +1,14 @@
 package utils;
 
 import org.apache.commons.fileupload.FileItem;
-import practice.sv.bai1.Student;
+import model.Student;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class FileUtils {
     public static String uploadFile(List<FileItem> fileItems, String dirUrl) {
         for (FileItem fileItem : fileItems) {

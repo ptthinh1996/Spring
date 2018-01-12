@@ -1,22 +1,24 @@
 package service;
 
+
 import model.Student;
-import org.apache.commons.fileupload.FileItem;
+import org.springframework.stereotype.Service;
 import persistence.StudentDao;
-import practice.sv.bai1.ReadFile;
-import utils.FileUtils;
-
-import java.io.File;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
-import java.util.List;
 
+@Service
 public class StudentService {
 
     StudentDao studentDao = new StudentDao();
-    public void process(String filename){
-        ArrayList<Student> students;
-        students =  FileUtils.readFile(filename);
-        studentDao.create(students);
+
+    public void insertStudent(HttpServletRequest request){
+
+        studentDao.create(request);
+    }
+
+    public ArrayList<Student> readStudent(){
+        return studentDao.read();
     }
 
 }
